@@ -4,6 +4,8 @@ var vidas = 3
 var tamBloco=30
 var pontos = 0;
 var tela =1;
+var posX;
+var posY;
 
 cenario = [ 
   ['n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n'],
@@ -67,7 +69,7 @@ function colisaoV(px, py) {
 function setup() {
   createCanvas(721, 542); 
   posX = 0;
-  posY = 200;
+  posY = random(0,400);
 }
 
 function draw() {
@@ -87,7 +89,7 @@ function draw() {
 	posX = posX + 15;
   }
   else{
-	posX = 0;
+	posX = random(0,400);
   }
 
 	/*colisao blocos*/
@@ -316,3 +318,4 @@ if(pontos== 800){
 ];
 }
 }
+
