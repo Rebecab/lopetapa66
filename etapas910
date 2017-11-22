@@ -4,8 +4,8 @@ var vidas = 3
 var tamBloco=30
 var pontos = 0;
 var tela =1;
-var posX=450;
-var posY=210;
+var posX=370;
+var posY=270;
 var direcao= cima;
 var direita=3;
 var esquerda=2;
@@ -19,7 +19,7 @@ cenario = [
   ['#','v','#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#','v','#'],
   ['#','v','#','v','#','#','#','#','#','#','v','#','#','v','#','#','#','#','#','#','v','#','v','#'],
   ['#','v','v','v','v','v','v','#','v','v','v','v','v','v','v','v','#','v','v','v','v','v','v','#'],
-  ['#','#','#','#','v','#','v','#','v','#','#','v','v','#','#','v','#','v','#','v','#','#','#','#'],
+  ['#','#','#','#','v','#','v','#','v','#','v','v','v','v','#','v','#','v','#','v','#','#','#','#'],
   ['#','v','v','v','v','#','v','v','v','#','v','v','v','v','#','v','v','v','#','v','v','v','v','#'],
   ['#','v','#','#','#','#','v','#','#','#','v','v','v','v','#','#','#','v','#','#','#','#','v','#'],
   ['#','v','v','v','v','#','v','v','v','#','v','v','v','v','#','v','v','v','#','v','v','v','v','#'],
@@ -89,9 +89,10 @@ function draw() {
 		}
 		if(tela==2){
   background(255,192,203);
+  
   /*colisão do fantasma com os blocos*/
    if(direcao == esquerda){
-	   if(!colisao(posX - 6, posY + tamBloco/2)){
+	   if(!colisao(posX - tamBloco/2, posY)){
 		   posX=posX- 6;
 	   }
 	   else {
@@ -99,7 +100,7 @@ function draw() {
 	   }
    }
    if(direcao == cima){
-	   if(!colisao(posX + tamBloco/2, posY - 6)){
+	   if(!colisao(posX , posY - tamBloco/2)){
 		   posY = posY-6;
 	   }
 	   else{
@@ -107,7 +108,7 @@ function draw() {
 	   }
    }
    if(direcao==direita){
-	   if(!colisao(posX+6, posY+tamBloco/2)){
+	   if(!colisao(posX+tamBloco/2, posY)){
 		   posX=posX+6;
 	   }
 	   else{
@@ -115,7 +116,7 @@ function draw() {
 	   }
    }
    if (direcao==baixo){
-	   if(!colisao(posX+tamBloco/2, posY+6)){
+	   if(!colisao(posX, posY+tamBloco/2)){
 		   posY=posY+6;
 	   }
 	   else{
