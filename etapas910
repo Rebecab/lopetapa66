@@ -5,8 +5,17 @@ var tamBloco=30
 var pontos = 0;
 var tela =1;
 var posX=370;
-var posY=270;
+var posY=320;
+var posX2=400;
+var posY2=320;
+var posX3=340;
+var posY3=320;
+var posX4=320;
+var posY4=320;
 var direcao= cima;
+var direcao2= cima;
+var direcao3= cima;
+var direcao4= cima;
 var direita=3;
 var esquerda=2;
 var baixo=1;
@@ -70,10 +79,46 @@ function colisaoV(px, py) {
   
 }
 
+function colisaoJogFant(x, y, posX, posY){
+		if(dist(x,y,posX, posY) < 20){
+			return true;
+		}
+		else{
+			return false;
+		}
+}
+function colisaoJogFant2(x, y, posX2, posY2){
+		if(dist(x,y,posX2, posY2) < 20){
+			return true;
+		}
+		else{
+			return false;
+		}
+}
+function colisaoJogFant3(x, y, posX3, posY3){
+		if(dist(x,y,posX3, posY3) < 20){
+			return true;
+		}
+		else{
+			return false;
+		}
+}
+function colisaoJogFant4(x, y, posX4, posY4){
+		if(dist(x,y,posX4, posY4) < 20){
+			return true;
+		}
+		else{
+			return false;
+		}
+}
+
 function setup() {
   createCanvas(721, 542); 
  frameRate(30);
  direcao=esquerda;
+ direcao2=esquerda;
+ direcao3=esquerda;
+ direcao4=esquerda;
 }
 
 function draw() {
@@ -91,12 +136,14 @@ function draw() {
   background(255,192,203);
   
   /*colisão do fantasma com os blocos*/
+  
+  /*fantasma 1*/
    if(direcao == esquerda){
 	   if(!colisao(posX - tamBloco/2, posY)){
 		   posX=posX- 6;
 	   }
 	   else {
-		   direcao = Math.floor((Math.random()*3));
+		   direcao = Math.floor((Math.random()*4));
 	   }
    }
    if(direcao == cima){
@@ -104,7 +151,7 @@ function draw() {
 		   posY = posY-6;
 	   }
 	   else{
-		   direcao = Math.floor((Math.random()*3));
+		   direcao = Math.floor((Math.random()*4));
 	   }
    }
    if(direcao==direita){
@@ -112,7 +159,7 @@ function draw() {
 		   posX=posX+6;
 	   }
 	   else{
-		   direcao= Math.floor((Math.random()*3));
+		   direcao= Math.floor((Math.random()*4));
 	   }
    }
    if (direcao==baixo){
@@ -120,9 +167,112 @@ function draw() {
 		   posY=posY+6;
 	   }
 	   else{
-		   direcao=Math.floor((Math.random()*3));
+		   direcao=Math.floor((Math.random()*4));
 	   }
    }
+   
+   /*fantasma 2*/
+    if(direcao2 == esquerda){
+	   if(!colisao(posX2 - tamBloco/2, posY2)){
+		   posX2=posX2- 6;
+	   }
+	   else {
+		   direcao2 = Math.floor((Math.random()*4));
+	   }
+   }
+   if(direcao2 == cima){
+	   if(!colisao(posX2 , posY2 - tamBloco/2)){
+		   posY2 = posY2-6;
+	   }
+	   else{
+		   direcao2 = Math.floor((Math.random()*4));
+	   }
+   }
+   if(direcao2==direita){
+	   if(!colisao(posX2+tamBloco/2, posY2)){
+		   posX2=posX2+6;
+	   }
+	   else{
+		   direcao2= Math.floor((Math.random()*4));
+	   }
+   }
+   if (direcao2==baixo){
+	   if(!colisao(posX2, posY2+tamBloco/2)){
+		   posY2=posY2+6;
+	   }
+	   else{
+		   direcao2=Math.floor((Math.random()*4));
+	   }
+   }
+   
+   /*fantasma 3*/
+    if(direcao3 == esquerda){
+	   if(!colisao(posX3 - tamBloco/2, posY3)){
+		   posX3=posX3- 6;
+	   }
+	   else {
+		   direcao3 = Math.floor((Math.random()*4));
+	   }
+   }
+   if(direcao3 == cima){
+	   if(!colisao(posX3 , posY3 - tamBloco/2)){
+		   posY3 = posY3-6;
+	   }
+	   else{
+		   direcao3 = Math.floor((Math.random()*4));
+	   }
+   }
+   if(direcao3==direita){
+	   if(!colisao(posX3+tamBloco/2, posY3)){
+		   posX3=posX3+6;
+	   }
+	   else{
+		   direcao3= Math.floor((Math.random()*4));
+	   }
+   }
+   if (direcao3==baixo){
+	   if(!colisao(posX3, posY3+tamBloco/2)){
+		   posY3=posY3+6;
+	   }
+	   else{
+		   direcao3=Math.floor((Math.random()*4));
+	   }
+   }
+   
+   /*fantasma 4*/
+    if(direcao4 == esquerda){
+	   if(!colisao(posX4 - tamBloco/2, posY4)){
+		   posX4=posX4- 6;
+	   }
+	   else {
+		   direcao4 = Math.floor((Math.random()*4));
+	   }
+   }
+   if(direcao4 == cima){
+	   if(!colisao(posX4 , posY4 - tamBloco/2)){
+		   posY4 = posY4-6;
+	   }
+	   else{
+		   direcao4 = Math.floor((Math.random()*4));
+	   }
+   }
+   if(direcao4==direita){
+	   if(!colisao(posX4+tamBloco/2, posY4)){
+		   posX4=posX4+6;
+	   }
+	   else{
+		   direcao4= Math.floor((Math.random()*4));
+	   }
+   }
+   if (direcao4==baixo){
+	   if(!colisao(posX4, posY4+tamBloco/2)){
+		   posY4=posY4+6;
+	   }
+	   else{
+		   direcao4=Math.floor((Math.random()*4));
+	   }
+   }
+   
 	/*colisao blocos*/
     if (keyIsDown(LEFT_ARROW)) {
      if ( ! colisao( x - 10 - tamBloco/2, y ) ) {
@@ -203,9 +353,32 @@ function draw() {
 	vidas++;            
      } 
    }
-   
+   /*colisão do jogador com o fantasma*/
+   if(colisaoJogFant(x,y,posX, posY)){
+	   vidas--;
+	   x = 45;
+	   y = 75;
+   }
+     if(colisaoJogFant2(x,y,posX2, posY2)){
+	   vidas--;
+	   x = 45;
+	   y = 75;
+   }
+     if(colisaoJogFant3(x,y,posX3, posY3)){
+	   vidas--;
+	   x = 45;
+	   y = 75;
+   }
+     if(colisaoJogFant4(x,y,posX4, posY4)){
+	   vidas--;
+	   x = 45;
+	   y = 75;
+   }
     fill(144,238,144)
 	ellipse(posX, posY, 20, 20);
+	ellipse(posX2, posY2, 20, 20);
+	ellipse(posX3, posY3, 20, 20);
+	ellipse(posX4, posY4, 20, 20);
 	fill(255,255,0)
 	noStroke
 	ellipse(x, y, 20, 20);
@@ -234,7 +407,7 @@ text("Pontos: " + pontos, 350,20)
     }
   }
 }
-	if(pontos == 1000){
+	if(pontos >= 500){
 		background(255,192,203);
 		textSize(50);
 		fill(34,139,34);
@@ -246,18 +419,16 @@ text("Pontos: " + pontos, 350,20)
 		fill(34,139,34);
 		text("GAME OVER",200,250);
 	}
-if(pontos==100){
+if(pontos==60){
   cenario[2][3]='k'
 }
-if(posX==x){
-	vidas--
-}
-  if(pontos==200){
+
+  if(pontos==100){
 	cenario = [ 
   ['n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n'],
   ['#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'], 
-  ['#','v','#','v','v','v','v','v','v','v','v','#','v','#','v','v','v','v','v','v','v','#','v','#'],
-  ['#','v','#','#','v','#','#','#','v','#','#','#','v','#','#','#','v','#','#','v','#','#','v','#'],
+  ['#','v','#','v','v','v','v','v','v','v','v','#','v','#','v','v','v','v','v','v','v','v','v','#'],
+  ['#','v','#','v','#','#','#','#','#','#','v','#','v','#','v','#','#','#','#','#','#','#','v','#'],
   ['#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#'],
   ['#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','v','#'],
   ['#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#','v','#'],
@@ -269,22 +440,32 @@ if(posX==x){
   ['#','v','#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#'],
   ['#','v','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'],
   ['#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#'],
-  ['#','v','#','#','v','#','#','#','v','#','#','#','v','#','#','#','v','#','#','v','#','#','v','#'],
-  ['#','v','#','v','v','v','v','v','v','v','v','#','v','#','v','v','v','v','v','v','v','#','v','#'],
+  ['#','v','#','#','#','#','#','#','#','#','v','#','v','#','v','#','#','#','#','#','v','#','v','#'],
+  ['#','v','v','v','v','v','v','v','v','v','v','#','v','#','v','v','v','v','v','v','v','#','v','#'],
   ['#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#']
 ];
+x = 45;
+y = 75;
+posX=108;
+posY=78;
+posX2=320;
+posY2=78;
+posX3=620;
+posY3=495;
+posX4=450;
+posY4=495;
 }
-if(pontos==300){
+if(pontos==160){
   cenario[7][20]='k'
 }
-if(pontos==400){
+if(pontos==200){
 	cenario = [ 
   ['n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n'],
   ['#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'], 
   ['#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#'],
   ['#','v','#','v','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','v','#','v','#'],
   ['#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#'],
-  ['#','v','#','v','#','#','#','#','#','#','#','v','v','#','#','#','#','#','#','#','v','#','v','#'],
+  ['#','v','#','v','#','v','#','#','#','#','#','v','v','#','#','#','#','#','v','#','v','#','v','#'],
   ['#','v','#','v','#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#','v','#','v','#'],
   ['#','v','#','v','#','v','#','#','#','#','#','#','#','#','#','#','#','#','v','#','v','#','v','#'],
   ['#','v','#','v','#','v','v','#','v','v','v','v','v','v','v','v','#','v','v','#','v','#','v','#'],
@@ -292,18 +473,28 @@ if(pontos==400){
   ['#','v','#','v','#','v','v','v','v','#','v','v','v','v','#','v','v','v','v','#','v','#','v','#'],
   ['#','v','#','v','#','v','#','#','#','#','#','#','#','#','#','#','#','#','v','#','v','#','v','#'],
   ['#','v','#','v','#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#','v','#','v','#'],
-  ['#','v','#','v','#','#','#','#','#','#','#','v','v','#','#','#','#','#','#','#','v','#','v','#'],
+  ['#','v','#','v','#','v','#','#','#','#','#','v','v','#','#','#','#','#','v','#','v','#','v','#'],
   ['#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#'],
   ['#','v','#','v','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','v','#','v','#'],
   ['#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#'],
   ['#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#']
 ];
+x = 45;
+y = 75;
+posX=370;
+posY=320;
+posX2=400;
+posY2=320;
+posX3=340;
+posY3=320;
+posX4=320;
+posY4=320;
 }
-if(pontos==500){
+if(pontos==260){
   cenario[16][20]='k'
 }
 
-if(pontos==600){
+if(pontos==300){
 	cenario = [ 
   ['n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n'],
   ['#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'], 
@@ -312,11 +503,11 @@ if(pontos==600){
   ['#','v','v','v','v','v','v','v','v','v','#','v','v','#','v','v','v','v','v','v','v','v','v','#'],
   ['#','#','#','v','#','#','#','#','v','v','#','v','v','#','v','v','#','#','#','#','v','#','#','#'],
   ['#','v','v','v','#','v','v','v','v','v','#','v','v','#','v','v','v','v','v','#','v','v','v','#'],
-  ['#','v','#','#','#','v','#','#','#','v','#','v','v','#','v','#','#','#','v','#','#','#','v','#'],
+  ['#','v','#','#','#','v','#','v','#','v','#','v','v','#','v','#','v','#','v','#','#','#','v','#'],
   ['#','v','v','v','v','v','#','v','v','v','v','v','v','v','v','v','v','#','v','v','v','v','v','#'],
   ['#','#','#','#','#','#','#','v','#','#','v','#','#','v','#','#','v','#','#','#','#','#','#','#'],
   ['#','v','v','v','v','v','#','v','v','v','v','v','v','v','v','v','v','#','v','v','v','v','v','#'],
-  ['#','v','#','#','#','v','#','#','#','v','#','v','v','#','v','#','#','#','v','#','#','#','v','#'],
+  ['#','v','#','#','#','v','#','v','#','v','#','v','v','#','v','#','v','#','v','#','#','#','v','#'],
   ['#','v','v','v','#','v','v','v','v','v','#','v','v','#','v','v','v','v','v','#','v','v','v','#'],
   ['#','#','#','v','#','#','#','#','v','v','#','v','v','#','v','v','#','#','#','#','v','#','#','#'],
   ['#','v','v','v','v','v','v','v','v','v','#','v','v','#','v','v','v','v','v','v','v','v','v','#'],
@@ -324,17 +515,27 @@ if(pontos==600){
   ['#','v','v','v','#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#','v','v','v','#'],
   ['#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#']
 ];
+x = 350;
+y = 78;
+posX=50;
+posY=78;
+posX2=680;
+posY2=78;
+posX3=50;
+posY3=495;
+posX4=680;
+posY4=495;
 }
-if(pontos==700){
+if(pontos==360){
   cenario[14][5]='k'
 }
 
-if(pontos== 800){
+if(pontos== 400){
 	cenario = [ 
   ['n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n','n'],
   ['#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#'], 
   ['#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#'],
-  ['#','v','#','#','#','v','v','v','#','#','#','v','v','#','#','#','v','v','v','#','#','#','v','#'],
+  ['#','v','#','#','#','v','v','v','#','#','#','v','v','#','#','#','v','v','v','#','#','#','#','#'],
   ['#','v','v','#','v','v','#','v','v','#','v','v','v','v','#','v','v','#','v','v','#','v','v','#'],
   ['#','v','v','v','v','v','#','v','v','v','v','v','v','v','v','v','v','#','v','v','v','v','v','#'],
   ['#','v','#','v','#','v','#','#','#','#','#','v','v','#','#','#','#','#','v','#','v','#','v','#'],
@@ -346,9 +547,19 @@ if(pontos== 800){
   ['#','v','#','v','#','v','#','#','#','#','#','v','v','#','#','#','#','#','v','#','v','#','v','#'],
   ['#','v','v','v','v','v','#','v','v','v','v','v','v','v','v','v','v','#','v','v','v','v','v','#'],
   ['#','v','v','#','v','v','#','v','v','#','v','v','v','v','#','v','v','#','v','v','#','v','v','#'],
-  ['#','v','#','#','#','v','v','v','#','#','#','v','v','#','#','#','v','v','v','#','#','#','v','#'],
+  ['#','#','#','#','#','v','v','v','#','#','#','v','v','#','#','#','v','v','v','#','#','#','v','#'],
   ['#','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','v','#'],
   ['#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#','#']
 ];
+x = 360;
+y = 290;
+posX=110;
+posY=230;
+posX2=620;
+posY2=230;
+posX3=110;
+posY3=350;
+posX4=620;
+posY4=350;
 }
 }
