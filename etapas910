@@ -29,7 +29,7 @@ var cacto;
 function preload(){
 	fundo = loadImage("C1!.png");
 	menina = loadImage("pc.png");
-	telaInicio = loadImage("deckyourdesktop_widescreen.jpg");
+	telaInicio = loadImage("tela.jpg");
 	
 }
 
@@ -139,7 +139,7 @@ function draw() {
 	if(tela==1){
 		image(telaInicio,400,120);
 		//background(255,192,203);
-		fill(0,255,255);
+		//fill(0,255,255);
 		textSize(50);
 		fill(34,139,34);
 		text("Bem Vindo!",200,250);
@@ -394,7 +394,6 @@ function draw() {
    fill(255,255,0)
 	noStroke
 	image(menina, x, y, 20, 20);
-	//image(flower, x, y, 20, 20);
 	
     fill(144,238,144)
 	ellipse(posX, posY, 20, 20);
